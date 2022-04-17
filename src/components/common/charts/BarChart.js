@@ -80,8 +80,8 @@ function BarChart({label, labelName}) {
       <>
         { 
             loading 
-            ? <Loading />
-            : <Bar data={data} options={options}/>
+                ? <Loading />
+                : <Bar data={data} options={options}/>
         }
       </>  
     );

@@ -16,14 +16,18 @@ export default function ProjectCard ({project, setModalOpen, setSelectedProject}
 
 
     useEffect(() => {
-        setTags([ ... new Set(project?.tags) ]);
+        setTags([ ...new Set(project?.tags) ]);
     }, [project]);
 
     return (
         <Paper elevation={3}
             className="card-container"
         >
-            <img src={project?.img} className="card-cover-image"/>
+            <img 
+                src={project?.img} 
+                className="card-cover-image"
+                alt={project ? project.title : "project title image"}
+            />
             <div className="card-body">
                 <div className="card-title">{project?.title}</div>
                 <div className="card-text">{project?.description}</div>
@@ -36,9 +40,9 @@ export default function ProjectCard ({project, setModalOpen, setSelectedProject}
                     }
                 </div>
             </div>
-            <a className="view-more-btn" onClick={handleViewMoreClick}>
+            <button className="view-more-btn" onClick={handleViewMoreClick}>
                 View More
-            </a>
+            </button>
         </Paper>
     );
 }

@@ -136,14 +136,18 @@
     margin-right: 10px;
     bottom: 0;
     margin-bottom: 10px;
+    padding: 5px;
     text-decoration: underline;
     font-size: 15px;
     color: dodgerblue;
+    background: white;
+    border: none;
     cursor: pointer;
 }
 
 .view-more-btn:hover {
     color: coral;
+    background: #f1f1f1;
 }
 
 .prj-pagination {

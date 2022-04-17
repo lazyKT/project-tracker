@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from "react";
 import "../styles/screens/HomeScreen.css";
-import AddIcon from '@mui/icons-material/Add';
 import ProjectList from "../components/home/ProjectList";
 import ProjectFilter from "../components/home/ProjectFilter";
 import Loading from "../components/common/Loading";
@@ -81,7 +80,7 @@ function HomeScreen () {
 
 
     const filterProjectsByKeyword = () => {
-        if (keyword.trim().length == 0)
+        if (keyword.trim().length === 0)
             return;
             
         setProjects(
