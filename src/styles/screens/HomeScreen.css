@@ -35,7 +35,7 @@
 .filter-container h4 {
     font-weight: 600;
     text-decoration: underline;
-    color: #2f4f4f
+    color: #2f4f4f;
 }
 
 .filter-row {
@@ -43,6 +43,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.filter-container {
+    padding: 10px;
+    background: #f2f2f2;
+    border-radius: 5px;
 }
 
 .filter-row div {

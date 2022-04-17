@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -7,8 +7,10 @@ import {
     Title,
     Tooltip,
     Legend,
-} from 'chart.js';
-import { Bar, Pie } from 'react-chartjs-2';
+} from "chart.js";
+import { Bar } from "react-chartjs-2";
+import Loading from "../../common/Loading";
+
 
 ChartJS.register(
     CategoryScale,
@@ -78,7 +80,7 @@ function BarChart({label, labelName}) {
       <>
         { 
             loading 
-            ? "Loading ..."
+            ? <Loading />
             : <Bar data={data} options={options}/>
         }
       </>  

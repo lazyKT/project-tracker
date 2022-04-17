@@ -13,7 +13,7 @@ function HomeScreen () {
     const [ projects, setProjects ] = useState(null);
     const [ error, setError ] = useState(null);
     const [ loading, setLoading ] = useState(true);
-    const [ sort, setSort ] = useState(1); // 1 for ascending, -1 for descending
+    const [ sort, setSort ] = useState(0); // 1 for ascending, -1 for descending, 0 for default
     const [ allTags, setAllTags ] = useState([]);
     const [ filteredTags, setFilteredTags ] = useState([]);
     const [ keyword, setKeyword ] = useState('');
@@ -28,14 +28,42 @@ function HomeScreen () {
             else {
                 setError(null);
                 setAllProjects(res.data);
+                setProjects(res.data);
                 let _allTags = [ ...new Set([].concat.apply([], res.data.map(d => d.tags)))];
                 setAllTags(_allTags);
             }
         }
         catch (err) {
-            console.error(err);
             setError(err.message);
         }
+    }
+
+
+    const doSorting = order => {
+
+        if (order === 0) return;
+
+        return function innerSort (a, b) {
+            const titleA = a.title;
+            const titleB = b.title;
+            let comparison = 0;
+
+            if (titleA > titleB)
+                comparison = 1;
+            else if (titleA < titleB)
+                comparison = -1;
+            
+            return order === 1 ? comparison : comparison * -1;
+        }
+    }
+
+
+    const sortProjects = (_sort) => {
+        if (projects === null || projects?.length < 2)
+            return;
+        
+        const sortedProjects = [...projects].sort(doSorting(_sort));
+        setProjects([...sortedProjects]);
     }
 
 
@@ -63,6 +91,7 @@ function HomeScreen () {
 
 
     useEffect(() => {
+        /**console.log("effect#1");**/
         const abortController = new AbortController();
 
         (async () => {
@@ -74,24 +103,26 @@ function HomeScreen () {
 
     
     useEffect(() => {
-        if ((projects && projects !== null) || (error && error !== null))
+        if ((allProjects && allProjects !== null) || (error && error !== null))
             setLoading (false);
-    }, [projects, error, allTags]);
+    }, [projects, allProjects, error, allTags]);
 
 
     useEffect(() => {
         filterProjectsByTags();
         filterProjectsByKeyword();
-    }, [filteredTags, sort, allProjects, keyword]);
+    }, [filteredTags, allProjects, keyword]);
+
+
+    useEffect(() => {
+        setLoading(true);
+        sortProjects(sort);
+    }, [sort]);
 
 
     return (
         <div className="container">
             <span className="title">Projects</span>
-            <div className="button">
-                <AddIcon />
-                Create New Project
-            </div>
             <ProjectFilter 
                 onSortChange={val => setSort(val)}
                 onTagChange={val => setFilteredTags(val)}

@@ -32,6 +32,9 @@ function ProjectList ({projects}) {
                 projects?.length % 8 === 0
                     ? projects?.length/8 : Math.floor((projects?.length/8)) + 1
             );
+            setVisibleProjects(
+                projects.slice((page-1)*8, page*8)
+            );
         }
     }, [projects, modalOpen, selectedProject]);
 

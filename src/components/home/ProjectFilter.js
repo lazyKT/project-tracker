@@ -69,6 +69,7 @@ function ProjectFilter ({
                     value={sort}
                     onChange={handleSortChange}
                 >
+                    <MenuItem value={0}></MenuItem>
                     <MenuItem value={1}>Ascending</MenuItem>
                     <MenuItem value={-1}>Descending</MenuItem>
                 </Select>
