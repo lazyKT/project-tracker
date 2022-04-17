@@ -1,0 +1,142 @@
+.container {
+    background: #f9f9f9;
+    height: 100vh;
+    padding: 0px 20px;
+    padding-top: 70px;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    overflow: scroll;
+}
+
+.title {
+    font-weight: 700;
+    display: block;
+    color: darkslategray;
+    margin-bottom: 20px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+    background: lightcoral;
+    color: white;
+    width: fit-content;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: tomato;
+}
+
+.filter-container h4 {
+    font-weight: 600;
+    text-decoration: underline;
+    color: #2f4f4f
+}
+
+.filter-row {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.filter-row div {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    padding: 5px 10px;
+    background: dodgerblue;
+    color: white;
+    border: solid 0.7px dodgerblue;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-container {
+    width: 270px;
+    height: 250px;
+    margin: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-cover-image {
+    width: 270px;
+    height: 100px;
+}
+
+.card-body {
+    padding: 0px 10px;
+}
+
+.card-tags {
+    padding: 0;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.card-tags::-webkit-scrollbar {
+    width: 0;
+}
+
+.card-tags::-webkit-scrollbar-track {
+    background-color: #f9f9f9;
+}
+
+.card-tags::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4);
+    background-color: cornflowerblue;
+}
+
+.card-tag {
+    margin: 2px;
+}
+
+.card-title {
+    width: 210px; 
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #2f4f42;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+
+.card-text {
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin: 10px 0px;
+    height: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.view-more-btn {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    bottom: 0;
+    margin-bottom: 10px;
+    text-decoration: underline;
+    font-size: 15px;
+    color: dodgerblue;
+    cursor: pointer;
+}
+
+.view-more-btn:hover {
+    color: coral;
+}
+

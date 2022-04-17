@@ -1,0 +1,37 @@
+.nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    background: dodgerblue;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    box-sizing: border-box;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    padding: 5px;
+    font-size: 15px;
+    background: gainsboro;
+    border: none;
+    outline: none;
+}
+
+.search-button {
+    padding: 5px 10px;
+    background: cornflowerblue;
+    color: white;
+    border: solid cornflowerblue;
+    outline: none;
+}
+

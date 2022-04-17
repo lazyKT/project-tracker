@@ -1,0 +1,27 @@
+.chart-title {
+    color: darkslategrey;
+    text-decoration: underline;
+}
+
+.pie-container {
+    width: 60%;
+    height: 60%;
+    min-width: 200px;
+    max-width: 700px;
+    margin: auto;
+}
+
+.close-btn {
+    padding: 5px 15px;
+    background: orangered;
+    border: solid 1px orangered;
+    color: white;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: coral;
+    color: wheat;
+}
