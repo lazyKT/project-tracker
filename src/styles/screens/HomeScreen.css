@@ -140,3 +140,9 @@
     color: coral;
 }
 
+.prj-pagination {
+    margin: 20px auto;
+    display: block;
+    width: fit-content;
+}
+

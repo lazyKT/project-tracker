@@ -39,16 +39,16 @@ function PieChart ({label, labelName}) {
             datasets: [{
                 data: _data,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(254, 16, 235, 0.2)',
-                    'rgba(255, 26, 186, 0.2)',
-                    'rgba(175, 192, 92, 0.2)',
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(254, 16, 235, 0.5)',
+                    'rgba(255, 26, 186, 0.5)',
+                    'rgba(175, 192, 92, 0.5)',
                     
                 ]
             }]
@@ -72,7 +72,12 @@ function PieChart ({label, labelName}) {
         <>
             {
                 loading ? "Loading ..."
-                    : <div className="pie-container"><Pie data={data} /></div>
+                    : (
+                        <div className="pie-container">
+                            <h5>{labelName} Frequency of Occurance</h5>
+                            <Pie data={data} />
+                        </div>
+                    )
             }
         </>
     );

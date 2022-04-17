@@ -28,8 +28,8 @@ export default function ProjectCard ({project, setModalOpen, setSelectedProject}
                 <div className="card-title">{project?.title}</div>
                 <div className="card-text">{project?.description}</div>
                 <div>
-                {tags.slice(0, 2).map((tag, idx) => 
-                    <Chip className="card-tag" size="small" key={idx} label={tag} />)}
+                    {tags.slice(0, 2).map((tag, idx) => 
+                        <Chip className="card-tag" size="small" key={idx} label={tag} />)}
                     {
                         tags.length - 2 > 0 &&
                         <Chip className="card-tag" size="small" label={`${tags.length - 2} more`} />

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import Chip from '@mui/material/Chip';
+import "../../styles/common/Chart.css";
 import BarChart from "./charts/BarChart";
 import PieChart from "./charts/PieChart";
-import "../../styles/common/Chart.css";
 
 
 function Visuals ({project, closeModal}) {
@@ -43,7 +44,13 @@ function Visuals ({project, closeModal}) {
 
     return (
         <div>
-            <h4>{project.title}</h4>
+            <h4>{project?.title}</h4>
+            <div className="tag-container">
+                {
+                    project?.tags?.map((tag, idx) => 
+                    <Chip className="card-tag" size="small" key={idx} label={tag} />)
+                }
+            </div>
             <div className="selection">
                 <div onClick={handleChartTypeChange}>
                     { chartType === "bar" ? "View Pie Chart" : "View Bar Chart"}

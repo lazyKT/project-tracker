@@ -3,6 +3,7 @@ import "../styles/screens/HomeScreen.css";
 import AddIcon from '@mui/icons-material/Add';
 import ProjectList from "../components/home/ProjectList";
 import ProjectFilter from "../components/home/ProjectFilter";
+import Loading from "../components/common/Loading";
 import { fetchAllProjects } from "../networking/projectRequests";
 
 
@@ -22,7 +23,7 @@ function HomeScreen () {
         try {
             setLoading(true);
             const res = await fetchAllProjects(signal);
-            if (res.error) 
+            if (res.error === true) 
                 throw new Error (res.message);
             else {
                 setError(null);
@@ -32,6 +33,7 @@ function HomeScreen () {
             }
         }
         catch (err) {
+            console.error(err);
             setError(err.message);
         }
     }
@@ -68,12 +70,11 @@ function HomeScreen () {
         })()
 
         return () => abortController.abort();
-
     },[]);
 
     
     useEffect(() => {
-        if (projects || error)
+        if ((projects && projects !== null) || (error && error !== null))
             setLoading (false);
     }, [projects, error, allTags]);
 
@@ -101,7 +102,7 @@ function HomeScreen () {
                 setKeyword={val => setKeyword(val)}
             />
             {
-                loading ? "Loading ..." : (
+                loading ? <Loading /> : (
                     <>
                         { error && "Unexpected Error" }
                         <ProjectList projects={projects}/>

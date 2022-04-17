@@ -4,6 +4,7 @@ import Pagination from '@mui/material/Pagination';
 import ProjectCard from "./ProjectCard";
 import Modal from "../common/Modal";
 import Visuals from "../common/Visuals";
+import Loading from "../common/Loading";
 
 
 function ProjectList ({projects}) {
@@ -47,7 +48,7 @@ function ProjectList ({projects}) {
     return (
         <>
             {
-                loading ? "Loading ..."
+                loading ? <Loading />
                     : (
                         <div className="row">
                             { visibleProjects?.map((project, idx) => (
@@ -70,6 +71,7 @@ function ProjectList ({projects}) {
                 </Modal> 
             }
             <Pagination 
+                className="prj-pagination"
                 count={paginationCount} 
                 page={page} 
                 color="primary" 

@@ -13,6 +13,7 @@ export async function fetchAllProjects (signal) {
         return { error: false, data : res.data };
     }
     catch (err) {
+        console.error(err);
         return {
             error: true,
             message: err?.message ? err?.message : "Unexpected Error"
