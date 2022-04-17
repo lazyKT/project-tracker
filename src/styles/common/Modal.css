@@ -25,6 +25,7 @@
     width: 50%;
     max-width: 300px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -40,4 +41,19 @@
 
 .selection div:hover {
     color: wheat;
+}
+
+
+@media only screen and (max-width: 400px) {
+    .selection {
+        width: 100%;
+    }
+
+    .selection div {
+        margin: 5px;
+    }
+
+    .modal-body {
+        width: 100%;
+    }
 }

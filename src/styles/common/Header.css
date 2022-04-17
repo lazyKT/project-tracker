@@ -12,6 +12,7 @@
     font-size: 18px;
     font-weight: 600;
     box-sizing: border-box;
+    z-index: 999;
 }
 
 .search-box {

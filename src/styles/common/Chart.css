@@ -31,3 +31,11 @@
     background-color: coral;
     color: wheat;
 }
+
+
+@media only screen and (max-width: 400px) {
+    .pie-container {
+        width: 100%;
+        height: 80%;
+    }
+}

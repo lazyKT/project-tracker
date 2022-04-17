@@ -67,25 +67,32 @@ function HomeScreen () {
 
 
     // filter projects by tags
-    const filterProjectsByTags = () => {
-        if (filteredTags.length === 0)
-            setProjects(allProjects);
-        else
-            setProjects(
-                allProjects?.filter(p => {
-                    return p.tags.some((tag) => filteredTags.includes(tag));
-                })
-            );
+    const filterProjectsByTags = (_tags) => {
+        return allProjects?.filter(p => {
+            return p.tags.some((tag) => filteredTags.includes(tag));
+        });
     };
 
 
-    const filterProjectsByKeyword = () => {
-        if (keyword.trim().length === 0)
-            return;
-            
-        setProjects(
-            projects?.filter(p => p.title.toLowerCase().includes(keyword.toLowerCase()))
-        )
+    const filterProjectsByKeyword = (_keyword) => {
+        return allProjects?.filter(p => 
+            p.title.toLowerCase().includes(_keyword.toLowerCase())
+        );
+    }
+
+    
+    const filterProjects = (_tags, _keyword) => {
+        
+        let filteredProjects = allProjects;
+        if (_tags?.length > 0) {
+            // filter by tags
+            filteredProjects = filterProjectsByTags(_tags);
+        }
+        if (_keyword.trim().length > 0) {
+            // filter by keyword
+            filteredProjects = filterProjectsByKeyword(_keyword);
+        }
+        setProjects(filteredProjects);
     }
 
 
@@ -108,8 +115,7 @@ function HomeScreen () {
 
 
     useEffect(() => {
-        filterProjectsByTags();
-        filterProjectsByKeyword();
+        filterProjects(filteredTags, keyword);
     }, [filteredTags, allProjects, keyword]);
 
 
